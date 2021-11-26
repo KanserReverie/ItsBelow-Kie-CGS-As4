@@ -204,4 +204,18 @@ using UnityEngine;
         Right,
         Left
     }
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.layer == LayerMask.NameToLayer("End"))
+        {
+        #region Quit on ESC
+            Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+
+        #endregion
+        }
+    }
 }

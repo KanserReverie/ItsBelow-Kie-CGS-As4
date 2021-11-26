@@ -29,6 +29,19 @@ public class Done : MonoBehaviour
 
 		#endregion
 		}
+	}
 
+	private void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		if(hit.gameObject.layer == LayerMask.NameToLayer("Player"))
+		{
+		#region Quit on ESC
+			Application.Quit();
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#endif
+
+		#endregion
+		}
 	}
 }
